@@ -1,0 +1,83 @@
+<!--
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title> Resultados </title>
+    </head>
+    <body>
+        <h1>Resultados</h1>
+        {% if resultado != '' %}
+            <p>Recebi dados: </p>
+            <p>Dados: {{resultado}} </p>
+        {% else %}
+            <p>Resultado Não Veio</p>
+        {% endif %}
+    </body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <!-- Meta tags Obrigatórias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="./stylo.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+    <script src="https://cdnjs.com/libraries/Chart.js"></script>
+
+    <title>Questionário</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/"> Questionário  </a>
+    </nav>
+    <div class="text-center">
+        <p> Resultados: {{ items }} </p>
+        <p>Media: {{ dados/10 }} </p>
+    </div>
+    
+    <canvas id="grafico"></canvas>
+    <script>
+        var ctx = document.getElementsByClassName('grafico');
+        var chartGraph = new Chart(ctx, {
+          type: 'horizontalBar',
+          data:  {
+              labels: [],
+              data: [],
+              borderWidth: 6,
+              borderColor: 'rgba(77, 166, , 253, 0,9)',
+              backgroundColor: 'transparent',
+          },
+          options: {
+              title: {
+                  display: true,
+                  fontSize: 20,
+                  text: 'Relatório de questões da empresa'
+              }
+          }
+        });
+    </script>
+    <div>
+        <form action="/">
+            <p class="text-center"> <button class="btn btn-primary" type="submit"> Voltar </button> </p>
+        </form>
+    </div>
+    <footer>
+        <p class="text-center" style="margin: 50px"> Disciplina: Gestão do Conhecimento <br> Equipe: Ângelo, Luis, Alex e Moacir </p>
+    </footer>
+  
+  
+      <!-- JavaScript (Opcional) -->
+      <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    </body>
+  </html>
